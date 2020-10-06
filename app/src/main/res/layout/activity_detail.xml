@@ -1,9 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<layout>
+
+    <data>
+
+        <variable
+            name="githubUser"
+            type="id.radenyaqien.githubuserdicoding.GithubUserModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DetailActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_detail"
+            style="@style/Widget.AppCompat.Toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@android:color/background_light" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:paddingBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_detail"
+            tools:layout_editor_absoluteX="-29dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_Hero"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/indonesianhero"
+                app:civ_border_color="@color/primaryTextColor"
+                app:civ_border_width="4dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/user1" />
+
+            <TextView
+                android:id="@+id/txt_follower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(githubUser.follower)}"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/txt_following"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_following"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/txt_following"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{String.valueOf(githubUser.following)}"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/txt_repo"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txt_follower"
+                app:layout_constraintTop_toBottomOf="@+id/iv_Hero"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/txt_repo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/repository"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintEnd_toEndOf="@id/txt_repo1"
+                app:layout_constraintStart_toStartOf="@+id/txt_repo1"
+                app:layout_constraintTop_toTopOf="@+id/txt_following1"
+                tools:layout_editor_absoluteX="306dp" />
+
+            <TextView
+                android:id="@+id/txt_follower1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/follower"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintEnd_toEndOf="@+id/txt_follower"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/txt_follower"
+                app:layout_constraintTop_toTopOf="@+id/txt_following1" />
+
+            <TextView
+                android:id="@+id/txt_following1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/following"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintEnd_toEndOf="@+id/txt_following"
+                app:layout_constraintStart_toStartOf="@+id/txt_following"
+                app:layout_constraintTop_toBottomOf="@+id/txt_following" />
+
+            <TextView
+                android:id="@+id/txt_repo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(githubUser.repository)}"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txt_following1"
+                app:layout_constraintTop_toTopOf="@+id/txt_following"
+                tools:text="TextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txt_name_"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/name"
+
+            app:layout_constraintBaseline_toBaselineOf="@+id/txt_name_1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_name_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            android:text="@{githubUser.name}"
+            android:textAlignment="viewEnd"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/txt_name_"
+            app:layout_constraintTop_toBottomOf="@+id/layoutheader"
+            tools:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txt_company_"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/company"
+            app:layout_constraintBaseline_toBaselineOf="@+id/txt_company_1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txt_company_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            android:text="@{githubUser.company}"
+            android:textAlignment="viewEnd"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/txt_company_"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name_1"
+            tools:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txt_location_"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/location"
+            app:layout_constraintBaseline_toBaselineOf="@+id/txt_location_1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txt_location_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            android:text="@{githubUser.location}"
+            android:textAlignment="viewEnd"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/txt_location_"
+            app:layout_constraintTop_toBottomOf="@+id/txt_company_"
+            tools:text="@string/app_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
