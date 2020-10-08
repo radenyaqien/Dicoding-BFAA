@@ -1,7 +1,8 @@
-package id.radenyaqien.githubuserdicoding.data
+package id.radenyaqien.githubuserdicoding.data.retrofit
 
 
 import id.radenyaqien.githubuserdicoding.BuildConfig
+
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
@@ -11,9 +12,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Service {
     companion object {
 
-        private const val BASE_URL = "https://api.github.com/search/"
+        private const val BASE_URL = "https://api.github.com/"
 
-      const val authToken = "cd721c2b36efbdde92b23a96ac3b13fd393235e1"
+
     }
 
     fun <Api> buildApi(
@@ -25,7 +26,7 @@ class Service {
                 OkHttpClient.Builder()
                     .addInterceptor { chain ->
                         chain.proceed(chain.request().newBuilder().also {
-                            it.addHeader("Authorization", "token $authToken")
+                            it.addHeader("Authorization", "token ${BuildConfig.API_KEY}")
                         }.build())
                     }.also { client ->
                         if (BuildConfig.DEBUG) {

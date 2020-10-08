@@ -1,7 +1,17 @@
 package id.radenyaqien.githubuserdicoding.util
 
-import android.content.res.AssetManager
+import android.view.View
+import com.google.android.material.snackbar.Snackbar
 
-fun AssetManager.readAssetsFile(fileName: String): String =
-    open(fileName).bufferedReader().use { it.readText() }
-
+//Create SnackBar
+fun View.snackbar(message: String) {
+    Snackbar.make(
+        this,
+        message,
+        Snackbar.LENGTH_LONG
+    ).also { snackbar ->
+        snackbar.setAction("Ok") {
+            snackbar.dismiss()
+        }
+    }.show()
+}

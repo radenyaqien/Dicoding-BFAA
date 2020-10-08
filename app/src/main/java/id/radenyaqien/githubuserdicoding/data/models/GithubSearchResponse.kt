@@ -1,4 +1,4 @@
-package id.radenyaqien.githubuserdicoding.data.retrofit
+package id.radenyaqien.githubuserdicoding.data.models
 
 
 import android.os.Parcelable

@@ -1,4 +1,4 @@
-package id.radenyaqien.githubuserdicoding.data
+package id.radenyaqien.githubuserdicoding.data.retrofit
 
 import okhttp3.ResponseBody
 
@@ -9,5 +9,4 @@ sealed class Resource<out T> {
         val errorCode: Int?,
         val errorBody: ResponseBody?
     ) : Resource<Nothing>()
-    object Loading : Resource<Nothing>()
 }

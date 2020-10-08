@@ -1,4 +1,4 @@
-package id.radenyaqien.githubuserdicoding.ui.ViewModels
+package id.radenyaqien.githubuserdicoding.ui.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">GithubUser Dicoding</string>
+    <string name="app_name">Github User Search</string>
     <string name="indonesianhero">IndonesianHero</string>
-    <string name="github_user">Github User | Submission 1</string>
+    <string name="github_user">Github User | Submission 2</string>
     <string name="name">Name</string>
     <string name="company">Company</string>
     <string name="location">Location</string>
@@ -9,4 +9,8 @@
     <string name="follower">Follower</string>
     <string name="following">Following</string>
     <string name="logo_bdd">Logo BDD</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search Github User</string>
+
+
 </resources>

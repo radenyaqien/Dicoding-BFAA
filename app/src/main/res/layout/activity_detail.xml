@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="githubUser"
-            type="id.radenyaqien.githubuserdicoding.GithubUserModel" />
+            name="GithubSearch"
+            type="id.radenyaqien.githubuserdicoding.data.models.DetailUserResponse" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailActivity">
+        tools:context=".ui.DetailActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_detail"
@@ -44,17 +44,16 @@
                 android:contentDescription="@string/indonesianhero"
                 app:civ_border_color="@color/primaryTextColor"
                 app:civ_border_width="4dp"
-
+                setImageUrl="@{GithubSearch.avatarUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/user1" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txt_follower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(githubUser.follower)}"
+                android:text="@{String.valueOf(GithubSearch.followers)}"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@+id/txt_following"
@@ -68,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@{String.valueOf(githubUser.following)}"
+                android:text="@{String.valueOf(GithubSearch.following)}"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@+id/txt_repo"
@@ -113,7 +112,7 @@
                 android:id="@+id/txt_repo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(githubUser.repository)}"
+                android:text="@{String.valueOf(GithubSearch.publicRepos)}"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -137,9 +136,9 @@
             android:id="@+id/txt_name_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+
             android:padding="16dp"
-            android:text="@{githubUser.name}"
+            android:text="@{GithubSearch.name ?? `-`}"
             android:textAlignment="viewEnd"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -162,9 +161,9 @@
             android:id="@+id/txt_company_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+
             android:padding="16dp"
-            android:text="@{githubUser.company}"
+            android:text="@{GithubSearch.company ?? `-`}"
             android:textAlignment="viewEnd"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -187,9 +186,8 @@
             android:id="@+id/txt_location_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:padding="16dp"
-            android:text="@{githubUser.location}"
+            android:text="@{GithubSearch.location ?? `-`}"
             android:textAlignment="viewEnd"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -197,5 +195,23 @@
             app:layout_constraintStart_toEndOf="@+id/txt_location_"
             app:layout_constraintTop_toBottomOf="@+id/txt_company_"
             tools:text="@string/app_name" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_location_1" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabs" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

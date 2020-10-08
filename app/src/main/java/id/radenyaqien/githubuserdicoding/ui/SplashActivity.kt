@@ -1,10 +1,11 @@
-package id.radenyaqien.githubuserdicoding
+package id.radenyaqien.githubuserdicoding.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import id.radenyaqien.githubuserdicoding.R
 
 class SplashActivity : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
         }, splashTime)
     }
 
-    private fun goTomain(){
+    private fun goTomain() {
         startActivity(Intent(applicationContext, MainActivity::class.java))
         finish()
     }

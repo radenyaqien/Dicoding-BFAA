@@ -1,4 +1,4 @@
-package id.radenyaqien.githubuserdicoding.data.Repository
+package id.radenyaqien.githubuserdicoding.data.repository
 
 import id.radenyaqien.githubuserdicoding.data.retrofit.Resource
 import kotlinx.coroutines.Dispatchers
@@ -27,7 +27,5 @@ abstract class BaseRepository {
         }
     }
 
-    suspend fun logout(api: UserApi) = safeApiCall {
-        api.logout()
-    }
+
 }

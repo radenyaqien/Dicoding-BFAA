@@ -1,4 +1,4 @@
-package id.radenyaqien.githubuserdicoding.ui.ViewModels
+package id.radenyaqien.githubuserdicoding.ui.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
