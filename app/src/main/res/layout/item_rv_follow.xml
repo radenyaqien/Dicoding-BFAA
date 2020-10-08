@@ -8,7 +8,7 @@
 
         <variable
             name="GithubUser"
-            type="id.radenyaqien.githubuserdicoding.GithubUserModel" />
+            type="id.radenyaqien.githubuserdicoding.data.models.GithubSearchResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:text="@{GithubUser.name}"
+            android:text="@{GithubUser.login}"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/iv_Hero"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="@{GithubUser.location}"
+            android:text="@{String.valueOf(GithubUser.id)}"
             app:layout_constraintBottom_toBottomOf="@+id/iv_Hero"
             app:layout_constraintEnd_toEndOf="@+id/txt_heroName"
             app:layout_constraintHorizontal_bias="0.0"
@@ -50,6 +50,7 @@
             android:contentDescription="@string/indonesianhero"
             app:civ_border_color="#FF909090"
             app:civ_border_width="2dp"
+            setImageUrl="@{GithubUser.avatarUrl}"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -1,4 +1,4 @@
-package id.radenyaqien.githubuserdicoding
+package id.radenyaqien.githubuserdicoding.util
 
 import android.content.res.AssetManager
 
