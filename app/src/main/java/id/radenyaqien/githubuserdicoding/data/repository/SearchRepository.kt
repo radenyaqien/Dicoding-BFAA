@@ -1,8 +1,9 @@
 package id.radenyaqien.githubuserdicoding.data.repository
 
 import id.radenyaqien.githubuserdicoding.data.retrofit.GithubInterface
+import javax.inject.Inject
 
-class SearchRepository(private val api: GithubInterface) : BaseRepository() {
+class SearchRepository @Inject constructor(private val api: GithubInterface) : BaseRepository() {
 
     suspend fun SearchUser(
         username: String

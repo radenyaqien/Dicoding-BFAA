@@ -5,30 +5,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import id.radenyaqien.githubuserdicoding.R
+import dagger.hilt.android.AndroidEntryPoint
 import id.radenyaqien.githubuserdicoding.adapter.FollowAdapter
-import id.radenyaqien.githubuserdicoding.data.repository.SearchRepository
-import id.radenyaqien.githubuserdicoding.data.retrofit.GithubInterface
 import id.radenyaqien.githubuserdicoding.data.retrofit.Resource
-import id.radenyaqien.githubuserdicoding.data.retrofit.Service
+import id.radenyaqien.githubuserdicoding.databinding.FragmentMyBinding
 import id.radenyaqien.githubuserdicoding.ui.viewModels.MainViewModel
-import id.radenyaqien.githubuserdicoding.ui.viewModels.ViewModelFactory
 import id.radenyaqien.githubuserdicoding.util.snackbar
-import kotlinx.android.synthetic.main.fragment_my.*
 
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
+@AndroidEntryPoint
 class MyFragment : Fragment() {
 
     private var param1: String? = null
     private var param2: String? = null
-    private var viewModel: MainViewModel? = null
-    private lateinit var service: Service
-    private lateinit var repository: SearchRepository
+    private val viewModel: MainViewModel by viewModels()
+    private lateinit var binding: FragmentMyBinding
     private val myAdapter by lazy {
         FollowAdapter()
     }
@@ -45,51 +41,50 @@ class MyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_my, container, false)
+    ): View {
+        binding = FragmentMyBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        service = Service()
-        repository = SearchRepository(service.buildApi(GithubInterface::class.java))
-        val factory = ViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
+
+
         initrv()
-        progress_detail.visibility = View.GONE
+        binding.progressDetail.visibility = View.GONE
         if (param1.equals("following")) {
             param2?.let {
-                viewModel?.getFollowing(it)
-                progress_detail.visibility = View.VISIBLE
+                viewModel.getFollowing(it)
+                binding.progressDetail.visibility = View.VISIBLE
             }
         } else {
             param2?.let {
-                viewModel?.getFollower(it)
-                progress_detail.visibility = View.VISIBLE
+                viewModel.getFollower(it)
+                binding.progressDetail.visibility = View.VISIBLE
             }
         }
-        viewModel?.followerResponse?.observe(viewLifecycleOwner, {
-            progress_detail.visibility = View.GONE
+        viewModel.followerResponse.observe(viewLifecycleOwner, {
+            binding.progressDetail.visibility = View.GONE
             when (it) {
                 is Resource.Success -> {
                     if (it.value.isNullOrEmpty()) {
-                        root_detail.snackbar("User Belum memiliki Follower")
+                        binding.rootDetail.snackbar("User Belum memiliki Follower")
                     } else {
                         myAdapter.addItems(it.value)
                     }
                 }
                 is Resource.Failure -> {
-                    root_detail.snackbar("Periksa Koneksi Anda")
+                    binding.rootDetail.snackbar("Periksa Koneksi Anda")
                 }
             }
         })
 
-        viewModel?.followingResponse?.observe(viewLifecycleOwner, {
-            progress_detail.visibility = View.GONE
+        viewModel.followingResponse.observe(viewLifecycleOwner, {
+            binding.progressDetail.visibility = View.GONE
             when (it) {
                 is Resource.Success -> {
                     if (it.value.isNullOrEmpty()) {
-                        root_detail.snackbar("User Belum memiliki Following")
+                        binding.root.snackbar("User Belum memiliki Following")
                     } else {
                         myAdapter.addItems(it.value)
 
@@ -97,7 +92,7 @@ class MyFragment : Fragment() {
                 }
 
                 is Resource.Failure -> {
-                    root_detail.snackbar("Periksa Koneksi Anda")
+                    binding.root.snackbar("Periksa Koneksi Anda")
                 }
             }
         })
@@ -119,7 +114,7 @@ class MyFragment : Fragment() {
     }
 
     private fun initrv() {
-        rv_follow.apply {
+        binding.rvFollow.apply {
             this.setHasFixedSize(true)
             this.layoutManager = LinearLayoutManager(requireContext())
             this.adapter = myAdapter

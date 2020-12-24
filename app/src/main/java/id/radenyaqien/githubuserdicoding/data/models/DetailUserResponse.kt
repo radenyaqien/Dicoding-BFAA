@@ -7,7 +7,7 @@ data class DetailUserResponse(
     @SerializedName("avatar_url")
     var avatarUrl: String?,
     @SerializedName("bio")
-    var bio: Any?,
+    var bio: String?,
     @SerializedName("blog")
     var blog: String?,
     @SerializedName("company")
@@ -15,7 +15,7 @@ data class DetailUserResponse(
     @SerializedName("created_at")
     var createdAt: String?,
     @SerializedName("email")
-    var email: Any?,
+    var email: String?,
     @SerializedName("events_url")
     var eventsUrl: String?,
     @SerializedName("followers")
@@ -31,7 +31,7 @@ data class DetailUserResponse(
     @SerializedName("gravatar_id")
     var gravatarId: String?,
     @SerializedName("hireable")
-    var hireable: Any?,
+    var hireable: String?,
     @SerializedName("html_url")
     var htmlUrl: String?,
     @SerializedName("id")
@@ -61,7 +61,7 @@ data class DetailUserResponse(
     @SerializedName("subscriptions_url")
     var subscriptionsUrl: String?,
     @SerializedName("twitter_username")
-    var twitterUsername: Any?,
+    var twitterUsername: String?,
     @SerializedName("type")
     var type: String?,
     @SerializedName("updated_at")

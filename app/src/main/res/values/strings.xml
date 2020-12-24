@@ -11,6 +11,9 @@
     <string name="logo_bdd">Logo BDD</string>
     <string name="search">Search</string>
     <string name="search_hint">Search Github User</string>
+    <string name="setting">setting</string>
+    <string name="favourite">favourite</string>
+    <string name="fav_user">My Favourite User</string>
 
 
 </resources>

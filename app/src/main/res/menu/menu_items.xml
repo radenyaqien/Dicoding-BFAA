@@ -10,5 +10,16 @@
         android:icon="@drawable/ic_search"
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/favourite"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="@string/favourite"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/Setting"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/setting"
         app:showAsAction="always" />
+
 </menu>
