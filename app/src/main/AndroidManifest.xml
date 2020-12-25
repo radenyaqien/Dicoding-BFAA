@@ -3,6 +3,16 @@
     package="id.radenyaqien.githubuserdicoding">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <permission
+        android:name="id.radenyaqien.githubuserdicoding.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="id.radenyaqien.githubuserdicoding.WRITE_DATABASE"
+        android:protectionLevel="normal" />
+
 
     <application
         android:name=".BaseApplication"
@@ -16,10 +26,11 @@
         <receiver
             android:name=".util.MyReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
         <activity
             android:name=".ui.SettingsActivity"
+            android:theme="@style/Theme.Broadcast.SmsReceiver"
             android:label="@string/title_activity_settings" />
         <activity android:name=".ui.FavoriteActivity" />
         <activity android:name=".ui.DetailActivity" />
@@ -35,6 +46,14 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
+
+        <provider
+            android:name=".util.MyContentProvider"
+            android:authorities="id.radenyaqien.githubuserdicoding.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="id.radenyaqien.githubuserdicoding.READ_DATABASE"
+            android:writePermission="id.radenyaqien.githubuserdicoding.WRITE_DATABASE" />
     </application>
 
 </manifest>

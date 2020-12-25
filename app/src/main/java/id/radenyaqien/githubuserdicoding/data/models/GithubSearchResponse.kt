@@ -3,7 +3,8 @@ package id.radenyaqien.githubuserdicoding.data.models
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
+
 
 @Parcelize
 data class GithubSearchResponse(
@@ -44,5 +45,5 @@ data class GithubSearchResponse(
     @SerializedName("type")
     var type: String?,
     @SerializedName("url")
-    var url: String?
+    var url: String?,
 ) : Parcelable

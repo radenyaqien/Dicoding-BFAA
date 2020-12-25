@@ -3,7 +3,7 @@ package id.radenyaqien.githubuserdicoding.di
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import id.radenyaqien.githubuserdicoding.data.repository.DetailRepository
 import id.radenyaqien.githubuserdicoding.data.repository.SearchRepository
 import id.radenyaqien.githubuserdicoding.data.retrofit.GithubInterface
@@ -12,7 +12,7 @@ import id.radenyaqien.githubuserdicoding.persistence.UserDao
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object RepoModule {
 
     @Provides

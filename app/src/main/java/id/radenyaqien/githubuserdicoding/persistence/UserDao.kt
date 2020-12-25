@@ -1,5 +1,6 @@
 package id.radenyaqien.githubuserdicoding.persistence
 
+import android.database.Cursor
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
@@ -19,6 +20,6 @@ interface UserDao {
     suspend fun delete(user: UserFavorite)
 
     // Cursor
-//    @Query("SELECT * FROM user_favorite_table")
-//    suspend fun cursorGetAll(): Cursor
+    @Query("SELECT * FROM user_favorite_table")
+    fun cursorGetAll(): Cursor
 }

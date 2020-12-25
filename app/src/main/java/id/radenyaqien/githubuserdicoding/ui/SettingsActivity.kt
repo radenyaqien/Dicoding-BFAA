@@ -38,7 +38,6 @@ class SettingsActivity : AppCompatActivity() {
 
 
         }
-
         private fun initSharedPreferences() {
             val sh = preferenceManager.sharedPreferences
             reminderPreferences.isChecked = sh.getBoolean(reminder, false)
@@ -57,6 +56,7 @@ class SettingsActivity : AppCompatActivity() {
 
         private fun setReminder(state: Boolean) {
             if (state) {
+
                 context?.let {
                     alarmReceiver.setRepeatingAlarm(it)
                 }
@@ -71,7 +71,6 @@ class SettingsActivity : AppCompatActivity() {
             super.onResume()
             preferenceScreen.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
         }
-
         override fun onPause() {
             super.onPause()
             preferenceScreen.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
