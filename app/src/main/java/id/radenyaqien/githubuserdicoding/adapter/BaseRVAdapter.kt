@@ -25,6 +25,11 @@ abstract class BaseRVAdapter<T : Any, VB : ViewDataBinding> :
         notifyDataSetChanged()
     }
 
+    fun clearItems() {
+        this.items.clear()
+        notifyDataSetChanged()
+    }
+
     var listener: ((view: View, item: T, position: Int) -> Unit)? = null
     var listener1: ((view: View, item: T, position: Int) -> Unit)? = null
     abstract fun getLayout(): Int

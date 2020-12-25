@@ -55,7 +55,7 @@ constructor(
 
     private val _resultdeleteUserToDb = MutableLiveData<Boolean>()
     val resultDeleteUserDb: LiveData<Boolean>
-        get() = _resultInsertUserToDb
+        get() = _resultdeleteUserToDb
 
     fun deleteUserFromDb(userFavorite: UserFavorite) {
         viewModelScope.launch {

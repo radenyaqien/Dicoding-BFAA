@@ -47,20 +47,25 @@ class DetailActivity : AppCompatActivity() {
 
     private fun observer() {
         viewModel.resultDeleteUserDb.observe(this) {
-            if (it) Toast.makeText(
-                this,
-                "berhasil di tambahkan ke user Favorite",
-                Toast.LENGTH_SHORT
-            ).show() else Toast.makeText(
-                this,
-                "gagal di tambahkan ke user Favorite",
-                Toast.LENGTH_SHORT
-            ).show()
+            if (it) {
+                Toast.makeText(
+                    this,
+                    "berhasil di hapus dari user Favorite",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
         viewModel.resultInsertUserDb.observe(this, {
-            if (it) username?.let { user ->
-                viewModel.getFavUserByUsername(user).observe(this) { user1 ->
-                    handleUserDetailFromDb(user1.firstOrNull())
+            if (it) {
+                username?.let { user ->
+                    Toast.makeText(
+                        this,
+                        "berhasil di tambahkan ke user Favorite",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    viewModel.getFavUserByUsername(user).observe(this) { user1 ->
+                        handleUserDetailFromDb(user1.firstOrNull())
+                    }
                 }
             }
 

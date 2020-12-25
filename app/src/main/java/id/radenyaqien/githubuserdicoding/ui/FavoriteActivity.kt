@@ -30,9 +30,13 @@ class FavoriteActivity : AppCompatActivity() {
         recyclerView()
         setToolbar()
         viewModel._favUser.observe(this) {
-            if (!it.isNullOrEmpty())
+            if (!it.isNullOrEmpty()) {
                 mAdapter.addItems(it)
-            else binding.imgNodata.visibility = View.VISIBLE
+            } else {
+                binding.imgNodata.visibility = View.VISIBLE
+                mAdapter.clearItems()
+            }
+
         }
     }
 
@@ -87,4 +91,5 @@ class FavoriteActivity : AppCompatActivity() {
             )
         }
     }
+
 }

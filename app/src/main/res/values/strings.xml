@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Github User Search</string>
     <string name="indonesianhero">IndonesianHero</string>
-    <string name="github_user">Github User | Submission 2</string>
+    <string name="github_user">Github User | Final Project</string>
     <string name="name">Name</string>
     <string name="company">Company</string>
     <string name="location">Location</string>
@@ -37,6 +37,7 @@
     <string name="lets_find_user_popular">notifikasi untuk proyek akhir bdd</string>
     <string name="alarm_cancel">alarm telah di batalkan</string>
     <string name="alarm_aktif">alarm di aktifkan</string>
+    <string name="state_favourite">State favourite</string>
 
 
 </resources>

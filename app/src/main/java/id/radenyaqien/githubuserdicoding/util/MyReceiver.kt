@@ -84,6 +84,7 @@ class MyReceiver : BroadcastReceiver() {
 
         val calendar = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, 9)
+
         }
 
         alarmManager.setInexactRepeating(
